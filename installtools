@@ -1,0 +1,4 @@
+#!/bin/bash
+# Shell Script for new Mac computers which installs tools.
+
+echo "Hello World!"
