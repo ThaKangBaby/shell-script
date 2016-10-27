@@ -1,7 +1,8 @@
 #!/bin/bash
-# Shell Script for new Mac computers which installs different tools as Git, Brew, Atom and so on.
+# Shell Script for new Mac computers which installs different tools as Git, Git-up, Brew, Atom, Zsh, Jekyll and setups Git Aliases and Git config.
 
 echo "Installing tools for Praqma users"
+
 
 # 1 Install HomeBrew first
 
@@ -27,6 +28,10 @@ brew install git
  work-on    = "!f() { BRANCH=`git issue-branch $1`; git fetch origin; git co $BRANCH   2> /dev/null || git co -b $BRANCH origin/`git default-branch`; git issue-wip $1; ghi assign $1;  }; f"
 
 
+# Install git up
+
+gem install git-up
+
 
 # 4 Setup Git username and password
 
@@ -41,10 +46,13 @@ brew install ghi
 
 # 6 Install Atom.io
 
+brew cask install atom
 
 
 
 # 7 Install Zsh
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 
 
