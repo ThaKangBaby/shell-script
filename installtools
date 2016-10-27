@@ -26,7 +26,17 @@ gem install git-up
 
 
 # 4 Setup Git username and password
+echo "Please insert your name and email as parameter when running installtools in quotation marks"
+echo 'Example ./installtools "Sonny Singh" "sos@praqma.net"'
 
+username="$1"
+echo "Username contains $username"
+
+mail="$2"
+echo "Email contains $mail"
+
+git config --global user.name "$username"
+git config --global user.email "$mail"
 
 
 
