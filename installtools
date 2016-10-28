@@ -43,7 +43,7 @@ git config --global user.email "$mail"
 
 # 6 Install Ruby gem GHI
 echo "6 - Installing GHI"
-gem install pygments.rb
+sudo gem install pygments.rb
 brew install ghi
 
 
