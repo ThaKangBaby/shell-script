@@ -6,26 +6,27 @@ echo "Installing tools for Praqma users"
 
 # 1 Install HomeBrew first
 
-echo "Installing HomeBrew"
+echo "1 - Installing HomeBrew"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" </dev/null 2> /dev/null
 
 
 # 2 Install Git after HomeBrew is installed
-echo "Installing Git"
+echo "2 - Installing Git"
 brew install git
 
 
 # 3 Git Aliases
-echo "Writing aliases into home/.gitconfig"
+echo "3 - Writing aliases into home/.gitconfig"
 cat Aliases >> $HOME/.gitconfig
 
 
-# Install git up
-echo "Installing Git-up"
-gem install git-up
+# 4 Install git up
+echo "4 - Installing Git-up"
+sudo gem install git-up
 
 
-# 4 Setup Git username and password
+# 5 Setup Git username and password
+echo "5 - configuring username and email"
 echo "Please insert your name and email as parameter when running installtools in quotation marks"
 echo 'Example ./installtools "Sonny Singh" "sos@praqma.net"'
 
@@ -40,26 +41,27 @@ git config --global user.email "$mail"
 
 
 
-# 5 Install Ruby gem GHI
-echo "Installing GHI"
+# 6 Install Ruby gem GHI
+echo "6 - Installing GHI"
 brew install ghi
 
 
 
-# 6 Install Atom.io
-echo "Installing Atom"
+# 7 Install Atom.io
+echo "7 - Installing Atom"
 brew cask install atom
 
 
 
-# 7 Install Zsh
-echo "Installing Zsh"
+# 8 Install Jekyll
+echo "8 - Installing Jekyll and Jekyll Redirect"
+sudo gem install jekyll
+sudo gem install jekyll-redirect-from
+
+
+
+
+# 9 Install Zsh
+echo "9 - Installing Zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-
-
-
-# 8 Install Jekyll
-echo "Installing Jekyll and Jekyll Redirect"
-gem install jekyll
-gem install jekyll-redirect-from
