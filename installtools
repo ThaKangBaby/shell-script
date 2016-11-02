@@ -1,67 +1,62 @@
 #!/bin/bash
 # Shell Script for new Mac computers which installs different tools as Git, Git-up, Brew, Atom, Zsh, Jekyll and setups Git Aliases and Git config.
 
-echo "Installing tools for Praqma users"
+if [ $# -eq 0 ]; then
+    echo "Please execute this file with arguments"
+    echo 'Example: ./installtools "Username" "Email@email.com" '
+    exit 1
+else
 
+    echo "Installing tools for Praqma users"
 
-# 1 Install HomeBrew first
+    # 1 Install HomeBrew first
 
-echo "1 - Installing HomeBrew"
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" </dev/null 2> /dev/null
+    echo "1 - Installing HomeBrew"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" </dev/null 2> /dev/null
 
+    # 2 Install Git after HomeBrew is installed
+    echo "2 - Installing Git"
+    brew install git
 
-# 2 Install Git after HomeBrew is installed
-echo "2 - Installing Git"
-brew install git
+    # 3 Git Aliases
+    echo "3 - Writing aliases into home/.gitconfig"
+    cat Aliases >> $HOME/.gitconfig
 
+    # 4 Install git up
+    echo "4 - Installing Git-up"
+    sudo gem install git-up
 
-# 3 Git Aliases
-echo "3 - Writing aliases into home/.gitconfig"
-cat Aliases >> $HOME/.gitconfig
+    # 5 Setup Git username and password
+    echo "5 - configuring username and email and OpenDiff as mergetool"
+    echo "Please insert your name and email as parameter when running installtools in quotation marks"
+    echo 'Example ./installtools "Sonny Singh" "sos@praqma.net"'
 
+    username="$1"
+    echo "Username contains $username"
 
-# 4 Install git up
-echo "4 - Installing Git-up"
-sudo gem install git-up
+    mail="$2"
+    echo "Email contains $mail"
 
+    git config --global user.name "$username"
+    git config --global user.email "$mail"
+    git config --global merge.tool opendiff
 
-# 5 Setup Git username and password
-echo "5 - configuring username and email and OpenDiff as mergetool"
-echo "Please insert your name and email as parameter when running installtools in quotation marks"
-echo 'Example ./installtools "Sonny Singh" "sos@praqma.net"'
+    # 6 Install Ruby gem GHI
+    echo "6 - Installing GHI"
+    sudo gem install pygments.rb
+    brew install ghi
 
-username="$1"
-echo "Username contains $username"
+    # 7 Install Atom.io
+    echo "7 - Installing Atom"
+    brew cask install atom
 
-mail="$2"
-echo "Email contains $mail"
+    # 8 Install Jekyll
+    echo "8 - Installing Jekyll and Jekyll Redirect"
+    sudo gem install jekyll
+    sudo gem install jekyll-redirect-from
 
-git config --global user.name "$username"
-git config --global user.email "$mail"
-git config --global merge.tool opendiff
+    # 9 Install Zsh
+    echo "9 - Installing Zsh"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-
-
-# 6 Install Ruby gem GHI
-echo "6 - Installing GHI"
-sudo gem install pygments.rb
-brew install ghi
-
-
-# 7 Install Atom.io
-echo "7 - Installing Atom"
-brew cask install atom
-
-
-
-# 8 Install Jekyll
-echo "8 - Installing Jekyll and Jekyll Redirect"
-sudo gem install jekyll
-sudo gem install jekyll-redirect-from
-
-
-
-
-# 9 Install Zsh
-echo "9 - Installing Zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
