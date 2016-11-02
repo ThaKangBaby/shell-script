@@ -26,7 +26,7 @@ sudo gem install git-up
 
 
 # 5 Setup Git username and password
-echo "5 - configuring username and email"
+echo "5 - configuring username and email and OpenDiff as mergetool"
 echo "Please insert your name and email as parameter when running installtools in quotation marks"
 echo 'Example ./installtools "Sonny Singh" "sos@praqma.net"'
 
@@ -38,6 +38,7 @@ echo "Email contains $mail"
 
 git config --global user.name "$username"
 git config --global user.email "$mail"
+git config --global merge.tool opendiff
 
 
 
@@ -64,4 +65,3 @@ sudo gem install jekyll-redirect-from
 # 9 Install Zsh
 echo "9 - Installing Zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
