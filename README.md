@@ -14,4 +14,6 @@ example:
 
 Step 3: Write the following to run the script:
 
-        ./installtools "your name" "your@email.com"
+        ./installtools "your full name" "github-email@address.com" "github-username"
+
+Step 4: While the script is running it will prompt you for your computer password at times - please type password and press Enter. At the end it will prompt you for the Github password.
