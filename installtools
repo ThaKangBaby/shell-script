@@ -51,9 +51,13 @@ else
     brew cask install atom
 
     # 8 Install Jekyll
-    echo "8 - Installing Jekyll and Jekyll Redirect"
-    sudo gem install jekyll
-    sudo gem install jekyll-redirect-from
+    #echo "8 - Installing Jekyll and Jekyll Redirect"
+    #sudo gem install jekyll
+    #sudo gem install jekyll-redirect-from
+
+    # 8 Install Ruby gem: github-pages
+    echo "8 - Installing Ruby gem github-pages"
+    sudo gem install github-pages
 
     # 9 Install Zsh
     echo "9 - Installing Zsh"
