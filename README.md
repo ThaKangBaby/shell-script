@@ -4,14 +4,14 @@ Shell script for new Mac computers which installs and configures tools for Marke
 
 ## How to run this shell script
 
-Step 1: Download or clone this repository(all the files under shell-script/)
+Step 1: Download or clone this repository
 
-Step 2: In terminal, change your directory to where you downloaded this repository
-        
-example: 
-        
+Step 2: In terminal, change your directory to where you downloaded this repository and enter the folder
+
+example:
+
         cd Downloads/shell-script-master
-        
+
 Step 3: Write the following to run the script:
 
         ./installtools "your name" "your@email.com"
