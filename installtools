@@ -2,8 +2,8 @@
 # Shell Script for new Mac computers which installs different tools as Git, Git-up, Brew, Atom, Zsh, Jekyll and setups Git Aliases and Git config.
 
 if [ $# -eq 0 ]; then
-    echo "Please execute this file with arguments"
-    echo 'Example: ./installtools "Username" "Email@email.com" '
+    echo "Please execute this file with these follwing arguments with the double quotes"
+    echo 'Example: ./installtools "Full name" "Git-Email@email.com" "Github Username"'
     exit 1
 else
 
@@ -28,18 +28,19 @@ else
 
     # 5 Setup Git username and password
     echo "5 - configuring username and email and OpenDiff as mergetool"
-    echo "Please insert your name and email as parameter when running installtools in quotation marks"
-    echo 'Example ./installtools "Sonny Singh" "sos@praqma.net"'
+    #echo "Please insert your name and email as parameter when running installtools in quotation marks"
+    #echo 'Example ./installtools "Sonny Singh" "sos@praqma.net"'
 
-    username="$1"
-    echo "Username contains $username"
+    #username="$1"
+    echo "Username contains $1"
 
-    mail="$2"
-    echo "Email contains $mail"
+    #mail="$2"
+    echo "Email contains $2"
 
-    git config --global user.name "$username"
-    git config --global user.email "$mail"
+    git config --global user.name "$1"
+    git config --global user.email "$2"
     git config --global merge.tool opendiff
+
 
     # 6 Install Ruby gem GHI
     echo "6 - Installing GHI"
@@ -62,5 +63,10 @@ else
     # 9 Install Zsh
     echo "9 - Installing Zsh"
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+    # 10 Configuring Ghi authentication
+    echo "10 - Configuring Ghi authentication"
+    git config --global github.user $3
+    ghi config --auth $3
 
 fi
