@@ -60,13 +60,14 @@ else
     echo "8 - Installing Ruby gem github-pages"
     sudo gem install github-pages
 
-    # 9 Install Zsh
-    echo "9 - Installing Zsh"
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-    # 10 Configuring Ghi authentication
-    echo "10 - Configuring Ghi authentication"
+    # 9 Configuring Ghi authentication
+    echo "9 - Configuring Ghi authentication"
     git config --global github.user $3
     ghi config --auth $3
+
+    # 10 Install Zsh
+    echo "10 - Installing Zsh"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 
 fi
