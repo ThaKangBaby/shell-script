@@ -14,4 +14,4 @@ example:
         
 Step 3: Write the following to run the script:
 
-./installtools "your name" "your@email.com"
+        ./installtools "your name" "your@email.com"
