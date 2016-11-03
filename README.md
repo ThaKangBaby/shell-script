@@ -4,7 +4,7 @@ Shell script for new Mac computers which installs and configures tools for Marke
 
 ## How to run this shell script
 
-Step 1: Download or clone this repository
+Step 1: Download this repository (Download Zip)
 
 Step 2: In terminal, change your directory to where you downloaded this repository and enter the folder
 
