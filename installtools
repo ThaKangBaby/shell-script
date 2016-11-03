@@ -2,7 +2,7 @@
 # Shell Script for new Mac computers which installs different tools as Git, Git-up, Brew, Atom, Zsh, Jekyll and setups Git Aliases and Git config.
 
 if [ $# -eq 0 ]; then
-    echo "Please execute this file with these follwing arguments with the double quotes"
+    echo "Please execute this file with these following arguments with the double quotes"
     echo 'Example: ./installtools "Full name" "Git-Email@email.com" "Github Username"'
     exit 1
 else
@@ -28,19 +28,11 @@ else
 
     # 5 Setup Git username and password
     echo "5 - configuring username and email and OpenDiff as mergetool"
-    #echo "Please insert your name and email as parameter when running installtools in quotation marks"
-    #echo 'Example ./installtools "Sonny Singh" "sos@praqma.net"'
-
-    #username="$1"
     echo "Username contains $1"
-
-    #mail="$2"
     echo "Email contains $2"
-
     git config --global user.name "$1"
     git config --global user.email "$2"
     git config --global merge.tool opendiff
-
 
     # 6 Install Ruby gem GHI
     echo "6 - Installing GHI"
@@ -50,11 +42,6 @@ else
     # 7 Install Atom.io
     echo "7 - Installing Atom"
     brew cask install atom
-
-    # 8 Install Jekyll
-    #echo "8 - Installing Jekyll and Jekyll Redirect"
-    #sudo gem install jekyll
-    #sudo gem install jekyll-redirect-from
 
     # 8 Install Ruby gem: github-pages
     echo "8 - Installing Ruby gem github-pages"
