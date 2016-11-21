@@ -45,7 +45,8 @@ else
 
     # 8 Install Ruby gem: github-pages
     echo "8 - Installing Ruby gem github-pages"
-    sudo gem install github-pages
+    sudo gem update --system
+    sudo gem install -n /usr/local/bin github-pages
 
     # 9 Configuring Ghi authentication
     echo "9 - Configuring Ghi authentication"
