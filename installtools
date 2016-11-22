@@ -1,12 +1,11 @@
 #!/bin/bash
 # Shell Script for new Mac computers which installs different tools as Git, Git-up, Brew, Atom, Zsh, Jekyll and setups Git Aliases and Git config.
 
-if [ $# -eq 0 ]; then
-    echo "Please execute this file with these following arguments with the double quotes"
+if [ "$3" == "" ]; then
+    echo "Please execute this file with these following 3 arguments including the double quotes"
     echo 'Example: ./installtools "Full name" "Git-Email@email.com" "Github Username"'
     exit 1
 else
-
     echo "Installing tools for Praqma users"
 
     # 1 Install HomeBrew first
@@ -56,6 +55,5 @@ else
     # 10 Install Zsh
     echo "10 - Installing Zsh"
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
 
 fi
